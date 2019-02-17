@@ -1,0 +1,17 @@
+@mixin responsiv($breakpoint) {
+  @media only screen and (max-width: #{$breakpoint}) {
+    @content;
+  }
+}
+
+@mixin responsiv-desktop($breakpoint) {
+  @media only screen and (min-width: #{$breakpoint}) {
+    @content;
+  }
+}
+
+@mixin flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
