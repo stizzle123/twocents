@@ -453,6 +453,22 @@
           color: darken($color-dark, 40);
           font-size: 1.4rem;
           font-weight: 300;
+
+          span {
+            display: inline-block;
+            background-color: $color-dark;
+            color: $color-white;
+            width: 1.5rem;
+            height: 1.5rem;
+            border-radius: 50%;
+            text-align: center;
+            font-size: 1.2rem;
+          }
+
+          small {
+            font-size: 1rem;
+            color: $color-grey-dark;
+          }
         }
         p {
           color: darken($color-grey-dark-2, 10);
@@ -699,6 +715,45 @@
         margin-left: -3rem;
         font-size: 1.2rem;
         color: $color-grey-dark;
+      }
+    }
+  }
+}
+
+.footer {
+  @include responsiv-desktop(#{$md + 1}) {
+    display: none;
+  }
+
+  @include responsiv($md) {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100vw;
+    background-color: lighten($color-grey-dark-2, 20);
+    padding: 2rem 5rem;
+    font-size: 1.4rem;
+
+    &__list {
+      list-style: none;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      &-item {
+        &:not(:last-child) {
+          margin-right: 2rem;
+        }
+      }
+
+      &-link {
+        text-decoration: none;
+        color: $color-grey-dark;
+        text-transform: uppercase;
+        transition: color 0.3s ease-out;
+        &:hover {
+          color: darken($color-grey-dark, 10);
+        }
       }
     }
   }

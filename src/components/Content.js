@@ -45,7 +45,9 @@ export default () => {
               class="middle__bottom-heading__avatar"
             />
             <div class="middle__bottom-heading__handle">
-              <h1>Yele Bademosi</h1>
+              <h1>
+                Yele Bademosi <span>E</span>&nbsp; <small>Jan 2, 8:31 PM</small>{" "}
+              </h1>
               <p>Angel Investor @Microtaction</p>
             </div>
           </div>

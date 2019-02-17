@@ -12,7 +12,7 @@ export default () => {
         <h1 className="left__sessions-heading">sessions</h1>
         <div className="left__sessions-icon">
           <i className="fas fa-redo-alt" />
-          refresh
+          &nbsp; refresh
         </div>
       </div>
 
@@ -58,7 +58,7 @@ export default () => {
         <h1 className="left__users-insight__sessions">insights</h1>
         <div className="left__users-insight__icon">
           <i className="fas fa-redo-alt" />
-          refresh
+          &nbsp; refresh
         </div>
       </div>
 
@@ -121,7 +121,7 @@ export default () => {
           <h1 className="left__users-questions__heading">questions</h1>
           <div className="left__users-questions__icon">
             <i className="fas fa-redo-alt" />
-            refresh
+            &nbsp; refresh
           </div>
         </div>
         <div className="left__users-questions__faq">
