@@ -125,6 +125,88 @@
       object-position: center;
       background-image: linear-gradient($color-grey-light, $color-grey-dark);
     }
+
+    &-wrapper {
+      position: relative;
+      display: inline-block;
+    }
+
+    &-dropdown {
+      position: absolute;
+      top: 3rem;
+      left: -12.5rem;
+      width: 25rem;
+      height: auto;
+      color: $color-grey-dark;
+      background-color: $color-white;
+      box-shadow: $box-shadow;
+      border-radius: 3px;
+      display: none;
+      opacity: 0;
+      transition: all 0.2s;
+
+      &.show {
+        display: block;
+        opacity: 1;
+      }
+
+      & > p {
+        position: absolute;
+        top: 0;
+        right: 0;
+        padding: 0.5rem 0.8rem;
+        font-size: 0.8rem;
+      }
+
+      &::before {
+        content: "";
+        position: absolute;
+        width: 2rem;
+        height: 2rem;
+        background-color: $color-white;
+        top: -1rem;
+        left: 49%;
+        transform: rotate(45deg);
+      }
+
+      &__content {
+        display: flex;
+        flex-direction: column;
+        margin-top: 2rem;
+        list-style: none;
+      }
+
+      &__items {
+        border-bottom: 1px solid $color-grey-light-2;
+      }
+
+      &__info {
+        display: flex;
+        padding: $padding;
+        img {
+          width: 2rem;
+          height: 2rem;
+          border-radius: 50%;
+          object-fit: cover;
+          object-position: center;
+          margin-right: 1rem;
+        }
+
+        p {
+          font-size: 0.6rem;
+        }
+      }
+
+      &__message {
+        h3 {
+          font-size: 0.8rem;
+        }
+
+        p {
+          font-size: 0.6rem;
+        }
+      }
+    }
   }
 
   &__post {
@@ -751,9 +833,12 @@
         text-decoration: none;
         color: $color-grey-dark;
         text-transform: uppercase;
-        transition: color 0.3s ease-out;
+        display: block;
+        transition: all 0.3s ease-out;
+        font-size: 1.6rem;
         &:hover {
           color: darken($color-grey-dark, 10);
+          transform: scale(1.5);
         }
       }
     }
