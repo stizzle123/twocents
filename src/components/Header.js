@@ -1,9 +1,11 @@
-import React from "react";
+import React, {Component} from "react";
 import { Link } from "react-router-dom";
 import face1 from "../img/face1.jpeg";
 
-export default () => {
-  return (
+class Header extends Component {
+
+  render(){
+    return (
     <div className="header">
       <Link to="/" className="header__brand">
         Tc
@@ -44,5 +46,8 @@ export default () => {
       </div>
       <button className="header__post">New Post</button>
     </div>
-  );
+  )
+  };
 };
+
+export default Header;
