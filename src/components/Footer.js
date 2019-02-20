@@ -7,22 +7,22 @@ export default () => {
       <ul className="footer__list">
         <li className="footer__list-item">
           <Link to="/" className="footer__list-link">
-            <i class="fas fa-home"></i>
+            <i class="fas fa-home" />
           </Link>
         </li>
         <li className="footer__list-item">
           <Link to="/" className="footer__list-link">
-            <i class="fas fa-envelope"></i>
+            <i class="fas fa-envelope" />
           </Link>
         </li>
         <li className="footer__list-item">
           <Link to="/" className="footer__list-link">
-            <i class="fas fa-bell"></i>
+            <i class="fas fa-bell" />
           </Link>
         </li>
         <li className="footer__list-item">
           <Link to="/" className="footer__list-link">
-            <i class="fas fa-cog"></i>
+            <i class="fas fa-cog" />
           </Link>
         </li>
       </ul>
