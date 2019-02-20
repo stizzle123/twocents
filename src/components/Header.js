@@ -66,7 +66,7 @@ class Header extends Component {
           <div className="header__notifications-wrapper">
             <i
               className="fas  fa-envelope header__notifications--icon"
-              onMouseOver={this.onShowDropdown}
+              onClick={this.onShowDropdown}
             />
             <div className="header__notifications-dropdown hover">
               <p>View Messages</p>
@@ -116,7 +116,7 @@ class Header extends Component {
           <div className="header__notifications-wrapper">
             <i
               className="fas fa-bell header__notifications--icon"
-              onMouseOver={this.onShowDropdown2}
+              onClick={this.onShowDropdown2}
             />
             <div className="header__notifications-dropdown hover2">
               <ul className="header__notifications-dropdown__content">
@@ -167,7 +167,7 @@ class Header extends Component {
               src={face1}
               alt="Profile Pic"
               className="header__notifications--avatar"
-              onMouseOver={this.onShowDropdown3}
+              onClick={this.onShowDropdown3}
             />
             <div className="header__notifications--avatar__dropdown hover3">
               <div className="header__notifications--avatar__dropdown-top">
