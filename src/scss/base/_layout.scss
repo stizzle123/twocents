@@ -124,6 +124,43 @@
       object-fit: cover;
       object-position: center;
       background-image: linear-gradient($color-grey-light, $color-grey-dark);
+
+      &__dropdown {
+        position: absolute;
+        top: 4rem;
+        background-color: $color-dark;
+        left: -2.5rem;
+        width: 12rem;
+        display: none;
+        opacity: 0;
+        transition: all 0.3s ease-out;
+
+        &.show {
+          display: block;
+          opacity: 1;
+        }
+
+        &-top,
+        &-middle {
+          margin: 1rem 0;
+          border-bottom: 0.5px solid darken($color-grey-dark-2, 50);
+        }
+      }
+
+      &__list {
+        list-style: none;
+        padding: 0.5rem 1rem;
+        width: 100%;
+        line-height: 2;
+      }
+
+      &__item {
+        padding: 0.5 2rem;
+
+        i {
+          margin-right: 1rem;
+        }
+      }
     }
 
     &-wrapper {
@@ -136,14 +173,13 @@
       top: 3rem;
       left: -12.5rem;
       width: 25rem;
-      height: auto;
       color: $color-grey-dark;
       background-color: $color-white;
       box-shadow: $box-shadow;
       border-radius: 3px;
       display: none;
       opacity: 0;
-      transition: all 0.2s;
+      transition: all 0.3s ease-out;
 
       &.show {
         display: block;
@@ -167,13 +203,15 @@
         top: -1rem;
         left: 49%;
         transform: rotate(45deg);
+        display: block;
       }
 
       &__content {
         display: flex;
         flex-direction: column;
-        margin-top: 2rem;
+        margin-top: 1rem;
         list-style: none;
+        overflow-y: scroll;
       }
 
       &__items {
@@ -197,35 +235,56 @@
         }
       }
 
+      &__avatar {
+        width: 2rem;
+        height: 2rem;
+        color: $color-white;
+        background-color: $color-primary-text;
+        border-radius: 50%;
+        text-align: center;
+        margin-right: 1rem;
+        & > * {
+          margin-top: 20%;
+        }
+      }
+
       &__message {
         h3 {
           font-size: 0.8rem;
+
+          span {
+            color: lighten($color-grey-dark, 20);
+          }
         }
 
         p {
           font-size: 0.6rem;
+          margin-top: 0.3rem;
         }
       }
     }
   }
 
   &__post {
-    background-image: linear-gradient(
-      to right bottom,
-      $color-primary 50%,
-      $color-primary-dark 100%,
-      transparent
-    );
+    & {
+      background-image: linear-gradient(
+        to right bottom,
+        $color-primary 50%,
+        $color-primary-dark 100%,
+        transparent
+      );
 
-    border: none;
-    color: $color-white;
-    width: 10rem;
-    padding: 0.5rem 0.8rem;
-    border-radius: 3px;
-    text-align: center;
-    display: block;
-    font-size: 1.1rem;
-    cursor: pointer;
+      border: none;
+      color: $color-white;
+      width: 10rem;
+      padding: 0.5rem 0.8rem;
+      border-radius: 3px;
+      text-align: center;
+      display: block;
+      font-size: 1.1rem;
+      cursor: pointer;
+      outline: none;
+    }
   }
 }
 
@@ -502,6 +561,10 @@
         padding: $padding;
         font-size: 1.6rem;
         color: $color-primary-text;
+
+        & > i {
+          cursor: pointer;
+        }
       }
     }
   }
@@ -843,4 +906,173 @@
       }
     }
   }
+}
+
+.overlay {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: none;
+  opacity: 0;
+
+  &.show {
+    display: block;
+    opacity: 1;
+  }
+
+  &-close {
+    font-size: 1.6rem;
+    position: absolute;
+    width: 3rem;
+    height: 3rem;
+    color: $color-grey-dark;
+    background-color: $color-white;
+    border-radius: 50%;
+    box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+    top: -2.5rem;
+    right: -1.5rem;
+    text-align: center;
+    cursor: pointer;
+
+    & > * {
+      margin: 25% auto;
+    }
+  }
+
+  &-content {
+    position: absolute;
+    width: 50%;
+
+    padding: 3rem 2rem;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: $color-white;
+    border-radius: 3px;
+
+    &__header {
+      margin-bottom: 1rem;
+      ul {
+        list-style: none;
+        display: flex;
+        width: 45%;
+
+        li {
+          width: 100%;
+          text-align: center;
+          margin-right: 1rem;
+          text-transform: uppercase;
+          font-size: 1.3rem;
+          padding-top: 1rem;
+          padding-bottom: 1rem;
+          display: block;
+
+          &:not(:last-child) {
+            color: $color-primary-text;
+            border-bottom: 2px solid $color-primary-text;
+          }
+
+          a {
+            display: block;
+            padding: 1rem 2.5rem;
+            text-decoration: none;
+            color: $color-grey-dark;
+
+            &.active {
+              color: $color-primary-text;
+            }
+          }
+        }
+      }
+    }
+
+    form {
+      width: 100%;
+    }
+
+    textarea {
+      width: 100%;
+      margin-bottom: 2rem;
+      border: none;
+      border-bottom: 2px solid $color-grey-dark-2;
+      // padding: 0.5rem 0;
+      font-family: inherit;
+      font-size: 1.3rem;
+
+      &::placeholder {
+        color: $color-grey-dark-2;
+      }
+
+      &:placeholder-shown + label {
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(-4rem);
+      }
+    }
+
+    input {
+      width: 100%;
+      margin-bottom: 2rem;
+      border: none;
+      border-bottom: 2px solid $color-grey-dark-2;
+      padding: 0.5rem 0;
+      font-family: inherit;
+
+      &::-webkit-input-placeholder {
+        color: $color-grey-dark-2;
+      }
+
+      &::placeholder {
+        color: $color-grey-dark-2;
+      }
+
+      &:placeholder-shown + label {
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(-4rem);
+      }
+
+      &:valid {
+        background-color: $color-white;
+      }
+    }
+
+    label {
+      color: $color-grey-dark-2;
+      display: block;
+      transition: all 0.2s;
+    }
+  }
+}
+
+.form-group {
+  position: relative;
+  // margin: 2rem 0;
+  padding: 2rem 0;
+}
+
+.float-right {
+  position: absolute;
+  right: 0;
+  color: $color-grey-dark-2;
+}
+
+.btn-green {
+  position: absolute;
+  right: 0;
+  margin-bottom: 3rem;
+  border: none;
+  padding: 1rem 2rem;
+  border-radius: 3px;
+  background-color: $color-primary-text;
+  color: $color-white;
+}
+
+.mb-3 {
+  margin-bottom: 3rem;
 }
